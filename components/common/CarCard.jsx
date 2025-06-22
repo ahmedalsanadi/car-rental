@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Star, Users, Zap, Fuel, Settings, MapPin, Heart } from 'lucide-react';
-import { formatCurrency } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils.js';
 
 const CarCard = ({ car, viewMode = 'grid' }) => {
   const [isLiked, setIsLiked] = useState(false);
