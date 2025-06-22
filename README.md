@@ -118,8 +118,10 @@ npm start
 car-rental/
 ├── app/                          # Next.js 15 App Router
 │   ├── admin/                    # Admin dashboard pages
+│   ├── about/                    # About us page
 │   ├── booking/                  # Booking flow pages
 │   ├── cars/                     # Car listing and detail pages
+│   ├── contact/                  # Contact us page
 │   ├── dashboard/                # User dashboard pages
 │   ├── login/                    # Authentication pages
 │   ├── register/                 # Registration pages
