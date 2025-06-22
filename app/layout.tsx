@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '@/hooks/useAuth';
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
@@ -14,7 +14,11 @@ export const metadata: Metadata = {
         'Experience the freedom of the road with our premium car rental service. Wide selection of vehicles, competitive prices, and exceptional service.',
     keywords: 'car rental, premium cars, vehicle rental, car hire, luxury cars',
     authors: [{ name: 'RentCar' }],
-    viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
 };
 
 export default function RootLayout({

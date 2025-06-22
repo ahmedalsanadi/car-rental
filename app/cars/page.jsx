@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Search, Filter, Grid, List, SlidersHorizontal } from 'lucide-react';
@@ -10,7 +10,8 @@ import CarFilters from '@/components/cars/CarFilters';
 import Loading from '@/components/layout/Loading';
 import { Button } from '@/components/ui/button';
 
-const CarsPage = () => {
+// Separate component that uses useSearchParams
+const CarsPageContent = () => {
     const [cars, setCars] = useState([]);
     const [filteredCars, setFilteredCars] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -424,6 +425,15 @@ const CarsPage = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+// Main component with Suspense boundary
+const CarsPage = () => {
+    return (
+        <Suspense fallback={<Loading message="Loading cars..." />}>
+            <CarsPageContent />
+        </Suspense>
     );
 };
 

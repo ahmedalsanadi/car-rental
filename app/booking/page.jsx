@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -22,7 +22,8 @@ import PriceBreakdown from '@/components/booking/PriceBreakdown';
 import Loading from '@/components/layout/Loading';
 import toast from 'react-hot-toast';
 
-const BookingPage = () => {
+// Separate component that uses useSearchParams
+const BookingPageContent = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [car, setCar] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -298,6 +299,15 @@ const BookingPage = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+// Main component with Suspense boundary
+const BookingPage = () => {
+    return (
+        <Suspense fallback={<Loading message="Loading booking..." />}>
+            <BookingPageContent />
+        </Suspense>
     );
 };
 

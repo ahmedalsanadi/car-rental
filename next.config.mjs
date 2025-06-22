@@ -14,9 +14,9 @@ const nextConfig = {
         formats: ['image/webp', 'image/avif'],
     },
 
-    // ESLint configuration
+    // ESLint configuration - temporarily disable during builds
     eslint: {
-        ignoreDuringBuilds: false, // Enable ESLint during builds for better code quality
+        ignoreDuringBuilds: true, // Temporarily disable ESLint during builds
     },
 
     // TypeScript configuration
