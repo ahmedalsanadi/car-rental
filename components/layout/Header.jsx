@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Car, Menu, X, User, LogOut } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
+import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const { user, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -22,8 +24,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const user = "Ahmed"
-
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Cars', href: '/cars' },
@@ -32,7 +32,8 @@ const Header = () => {
   ];
 
   const handleLogout = () => {
-console.log('logout')
+    logout();
+    router.push('/');
   };
 
   return (
@@ -83,12 +84,15 @@ console.log('logout')
                   <User className="w-4 h-4" />
                   <span>{user.name}</span>
                 </Link>
-                <button
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleLogout}
                   className="flex items-center space-x-1"
                 >
                   <LogOut className="w-4 h-4" />
                   <span>Logout</span>
-                </button>
+                </Button>
               </div>
             ) : (
               <div className="flex items-center space-x-3">
@@ -99,7 +103,7 @@ console.log('logout')
                   Login
                 </Link>
                 <Link href="/register">
-                  <button size="sm">Sign Up</button>
+                  <Button size="sm">Sign Up</Button>
                 </Link>
               </div>
             )}
