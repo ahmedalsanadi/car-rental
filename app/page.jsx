@@ -11,6 +11,7 @@ export default function Home() {
       <FeaturedCars />
       <ServicesSection />
       <HowItWorks />
+      <Testimonials />
     </div>
   );
 }
