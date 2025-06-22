@@ -1,0 +1,33 @@
+import { Inter } from 'next/font/google';
+import './globals.css';
+import type { Metadata } from 'next';
+import Header from '@/components/layout/Header';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+    title: 'RentCar - Premium Car Rental Service',
+    description:
+        'Experience the freedom of the road with our premium car rental service. Wide selection of vehicles, competitive prices, and exceptional service.',
+    keywords: 'car rental, premium cars, vehicle rental, car hire, luxury cars',
+    authors: [{ name: 'RentCar' }],
+    viewport: 'width=device-width, initial-scale=1',
+};
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+                <div className="min-h-screen flex flex-col">
+                    <Header />
+                    <main className="flex-grow pt-16">{children}</main>
+                    {/* TODO: Footer */}
+                </div>
+            </body>
+        </html>
+    );
+}
