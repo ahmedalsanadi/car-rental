@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -15,7 +19,6 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.9.0",
-    "@next/swc-wasm-nodejs": "13.5.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -75,6 +78,12 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.6"
+    "@types/js-cookie": "^3.0.6",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.0"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.0.0"
   }
 }
