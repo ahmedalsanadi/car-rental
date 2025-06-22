@@ -12,7 +12,7 @@ import {
     Wifi,
     Baby,
 } from 'lucide-react';
-import { formatCurrency, calculateTotalPrice } from '@/lib/utils';
+import { formatCurrency, calculateTotalPrice } from '@/lib/utils.js';
 import { Button } from '@/components/ui/button';
 
 const PriceCard = ({ car, onBookNow }) => {

@@ -21,7 +21,7 @@ import {
     Share2,
 } from 'lucide-react';
 import { getCarById, getRelatedCars } from '@/lib/api';
-import { formatCurrency } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils.js';
 import CarGallery from '@/components/cars/CarGallery';
 import CarSpecs from '@/components/cars/CarSpecs';
 import PriceCard from '@/components/cars/PriceCard';
