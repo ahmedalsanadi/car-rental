@@ -1,18 +1,4 @@
 {
     "version": 2,
-    "name": "car-rental",
-    "routes": [
-        {
-            "src": "/(.*)",
-            "headers": {
-                "X-Frame-Options": "DENY",
-                "X-Content-Type-Options": "nosniff",
-                "Referrer-Policy": "origin-when-cross-origin",
-                "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
-            }
-        }
-    ],
-    "env": {
-        "NODE_ENV": "production"
-    }
+    "name": "car-rental"
 }

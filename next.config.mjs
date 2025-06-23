@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Remove static export for Vercel deployment
-    // output: 'export',
-
     // Enable experimental features for better performance
     experimental: {
         optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
@@ -14,14 +11,14 @@ const nextConfig = {
         formats: ['image/webp', 'image/avif'],
     },
 
-    // ESLint configuration - temporarily disable during builds
+    // ESLint configuration
     eslint: {
-        ignoreDuringBuilds: true, // Temporarily disable ESLint during builds
+        ignoreDuringBuilds: true,
     },
 
     // TypeScript configuration
     typescript: {
-        ignoreBuildErrors: false, // Enable TypeScript checking during builds
+        ignoreBuildErrors: false,
     },
 
     // Compiler options

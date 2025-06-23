@@ -25,7 +25,7 @@ import Loading from '@/components/layout/Loading';
 import toast from 'react-hot-toast';
 
 const DashboardPage = () => {
-    const { user, isAuthenticated } = useAuth();
+    const { user, isAuthenticated, loading: authLoading, mounted } = useAuth();
     const router = useRouter();
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -33,6 +33,10 @@ const DashboardPage = () => {
     const [filterStatus, setFilterStatus] = useState('all');
 
     useEffect(() => {
+        // Wait for auth to be mounted and loaded
+        if (!mounted || authLoading) return;
+
+        // Check authentication after auth has loaded
         if (!isAuthenticated()) {
             router.push('/login');
             return;
@@ -54,7 +58,23 @@ const DashboardPage = () => {
         if (user?.id) {
             fetchBookings();
         }
-    }, [user, isAuthenticated, router]);
+    }, [mounted, authLoading, user, isAuthenticated, router]);
+
+    // show loading while auth is initializing
+    if (!mounted || authLoading) {
+        return <Loading message="Initializing..." />;
+    }
+
+    // show loading while data is being fetched
+    if (loading) {
+        return <Loading message="Loading your dashboard..." />;
+    }
+
+    // if not authenticated, don't render anything
+    // (redirect will happen in useEffect)
+    if (!isAuthenticated()) {
+        return null;
+    }
 
     const filteredBookings = bookings.filter((booking) => {
         if (filterStatus === 'all') return true;
@@ -74,10 +94,6 @@ const DashboardPage = () => {
         { id: 'bookings', label: 'My Bookings', icon: Calendar },
         { id: 'profile', label: 'Profile', icon: Settings },
     ];
-
-    if (loading) {
-        return <Loading message="Loading your dashboard..." />;
-    }
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">

@@ -14,7 +14,6 @@ import {
     Edit,
     Trash2,
     Eye,
-    Filter,
     Search,
 } from 'lucide-react';
 import {
@@ -29,7 +28,7 @@ import Loading from '@/components/layout/Loading';
 import toast from 'react-hot-toast';
 
 const AdminDashboard = () => {
-    const { user, isAuthenticated, isAdmin } = useAuth();
+    const { user, isAuthenticated, isAdmin, loading: authLoading, mounted } = useAuth();
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('overview');
@@ -39,6 +38,10 @@ const AdminDashboard = () => {
     const [customers, setCustomers] = useState([]);
 
     useEffect(() => {
+        // wait for auth to be mounted and loaded
+        if (!mounted || authLoading) return;
+
+        // check authentication after auth has loaded
         if (!isAuthenticated() || !isAdmin()) {
             router.push('/login');
             return;
@@ -68,7 +71,23 @@ const AdminDashboard = () => {
         };
 
         fetchData();
-    }, [isAuthenticated, isAdmin, router]);
+    },[mounted, authLoading, isAuthenticated, isAdmin, router]);
+
+        // show loading while auth is initializing
+        if (!mounted || authLoading) {
+            return <Loading message="Initializing..." />;
+        }
+    
+        // show loading while data is being fetched
+        if (loading) {
+            return <Loading message="Loading admin dashboard..." />;
+        }
+    
+        // if not authenticated or not admin, don't render anything
+        // (redirect will happen in useEffect)
+        if (!isAuthenticated() || !isAdmin()) {
+            return null;
+        }
 
     const tabs = [
         { id: 'overview', label: 'Overview', icon: TrendingUp },
@@ -77,9 +96,6 @@ const AdminDashboard = () => {
         { id: 'customers', label: 'Customers', icon: Users },
     ];
 
-    if (loading) {
-        return <Loading message="Loading admin dashboard..." />;
-    }
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">
