@@ -45,9 +45,17 @@ export const AuthProvider = ({ children }) => {
 
             if (response.success) {
                 // Store user data and token
-                Cookies.set('auth-token', response.token, { expires: 7 });
+                Cookies.set('auth-token', response.token, {
+                    expires: 7,
+                    secure: true,
+                    sameSite: 'lax',
+                    path: '/',
+                });
                 Cookies.set('user-data', JSON.stringify(response.user), {
                     expires: 7,
+                    secure: true,
+                    sameSite: 'lax',
+                    path: '/',
                 });
 
                 setUser(response.user);
@@ -78,9 +86,17 @@ export const AuthProvider = ({ children }) => {
 
             if (response.success) {
                 // Store user data and token
-                Cookies.set('auth-token', response.token, { expires: 7 });
+                Cookies.set('auth-token', response.token, {
+                    expires: 7,
+                    secure: true,
+                    sameSite: 'lax',
+                    path: '/',
+                });
                 Cookies.set('user-data', JSON.stringify(response.user), {
                     expires: 7,
+                    secure: true,
+                    sameSite: 'lax',
+                    path: '/',
                 });
 
                 setUser(response.user);
@@ -111,7 +127,12 @@ export const AuthProvider = ({ children }) => {
     const updateUser = (userData) => {
         const updatedUser = { ...user, ...userData };
         setUser(updatedUser);
-        Cookies.set('user-data', JSON.stringify(updatedUser), { expires: 7 });
+        Cookies.set('user-data', JSON.stringify(updatedUser), {
+            expires: 7,
+            secure: true,
+            sameSite: 'lax',
+            path: '/',
+        });
     };
 
     const isAuthenticated = () => {
