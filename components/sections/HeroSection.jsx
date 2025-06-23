@@ -28,7 +28,7 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
             {/* Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
                 <div className="absolute inset-0 bg-hero-pattern opacity-20"></div>
@@ -59,13 +59,13 @@ const HeroSection = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-4">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="text-white">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                    <h1 className="text-4xl md:text-6xl font-bold my-6 md:my-2">
                         Find Your Perfect
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
                             {' '}
@@ -84,7 +84,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl max-w-4xl mx-auto">
+                    className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl max-w-4xl mx-auto ">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                         {/* Location */}
                         <div className="lg:col-span-2">

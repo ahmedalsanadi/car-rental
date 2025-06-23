@@ -41,7 +41,7 @@ const CarGallery = ({ images, carName }) => {
         <>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 {/* Main Image */}
-                <div className="relative h-96 md:h-[500px] bg-gray-200">
+                <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gray-200 overflow-hidden">
                     {!imageLoaded[currentIndex] && (
                         <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
                             <div className="text-gray-400">Loading...</div>
