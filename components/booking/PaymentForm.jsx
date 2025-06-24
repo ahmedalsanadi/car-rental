@@ -215,7 +215,7 @@ const PaymentForm = ({
                 </div>
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row justify-between gap-1.5 mx-auto">
                 <Button
                     type="button"
                     variant="outline"

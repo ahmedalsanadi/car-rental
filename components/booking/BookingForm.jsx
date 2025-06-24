@@ -63,7 +63,7 @@ const BookingForm = ({
                     <div className="space-y-6">
                         <div className="flex items-center space-x-3 mb-6">
                             <Calendar className="w-6 h-6 text-primary-500" />
-                            <h2 className="text-2xl font-bold text-gray-900">
+                            <h2 className="text-lg md:text-2xl font-bold text-gray-900">
                                 Select Dates & Location
                             </h2>
                         </div>
@@ -140,7 +140,7 @@ const BookingForm = ({
                     <div className="space-y-6">
                         <div className="flex items-center space-x-3 mb-6">
                             <User className="w-6 h-6 text-primary-500" />
-                            <h2 className="text-2xl font-bold text-gray-900">
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-900">
                                 Personal Information
                             </h2>
                         </div>
@@ -158,7 +158,7 @@ const BookingForm = ({
                     <div className="space-y-6">
                         <div className="flex items-center space-x-3 mb-6">
                             <CreditCard className="w-6 h-6 text-primary-500" />
-                            <h2 className="text-2xl font-bold text-gray-900">
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-900">
                                 Payment Information
                             </h2>
                         </div>

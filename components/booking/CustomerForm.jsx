@@ -250,8 +250,8 @@ const CustomerForm = ({ bookingData, onStepComplete, onPrevStep }) => {
                 </div>
             </div>
 
-            <div className="flex justify-between">
-                <Button type="button" variant="outline" onClick={onPrevStep}>
+            <div className="flex flex-col md:flex-row justify-between gap-1.5 mx-auto">
+                <Button type="button" variant="outline" onClick={onPrevStep} >
                     Back to Dates
                 </Button>
                 <Button type="submit">Continue to Payment</Button>
